@@ -37,6 +37,11 @@ private:
   
   void balanceFromLeft(AVLNode* &root);
   void balanceFromRight(AVLNode* &root);
+
+  int getHeight(AVLNode* node);
+  void printHeight(AVLNode* root);
+
+  void printValue(AVLNode* root);
   
   void remove(AVLNode* &root, int badValue, bool& isShorter);
   

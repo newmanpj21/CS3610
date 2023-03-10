@@ -256,7 +256,6 @@ void AVLTree::print(char letter) {
 	}
 	else if (letter == 'p') {
 		printValue(root);
-		cout << endl;
 	}
 	return;
 }
