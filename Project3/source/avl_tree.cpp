@@ -275,6 +275,11 @@ void AVLTree::remove(int badValue) {
 
 
 void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
-	cout << "Need to implement this remove() function in Part B. \n";
+	// This is the base case where the root is the value to be removed.
+    if(root->value == badValue){
+        switch () {
+            case :
+        }
+    }
 	return;
 }
