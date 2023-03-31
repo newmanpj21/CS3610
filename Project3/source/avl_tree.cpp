@@ -99,6 +99,7 @@ void AVLTree::rotateToRight(AVLNode* & root) {
 void AVLTree::balanceFromLeft(AVLNode* & root) {
 	AVLNode* p;
 	AVLNode* w;
+	int rootVal = root->value;
 
 	p = root->left;
 
@@ -112,6 +113,21 @@ void AVLTree::balanceFromLeft(AVLNode* & root) {
 	case 0: // You need to handle this case; possible in AVL deletion
 
 		cout << "You need to handle this case, as it is possible in AVL deletion. " << endl;
+		root->value = p->value;
+		root->right = root->left;
+		root->left = NULL;
+
+		root->left = p->left;
+		p->left = NULL;
+
+		p->left = p->right;
+		p->right = NULL;
+
+		p->value = rootVal;
+		p->bf = -1;
+
+		root->bf = 1;
+		break;
 		break;
 
 	case 1:
@@ -142,7 +158,7 @@ void AVLTree::balanceFromLeft(AVLNode* & root) {
 void AVLTree::balanceFromRight(AVLNode* & root) {
 	AVLNode* p;
 	AVLNode* w;
-
+	int rootVal = root->value;
 
 	p = root->right;
 	switch (p->bf) {
@@ -171,7 +187,21 @@ void AVLTree::balanceFromRight(AVLNode* & root) {
 
 	case 0: // You need to handle this case; possible in AVL deletion
 
-		cout << "You need to handle this case, as it is possible in AVL deletion. " << endl;
+
+		root->value = p->value;
+		root->left = root->right;
+		root->right = NULL;
+
+		root->right = p->right;
+		p->right = NULL;
+
+		p->right = p->left;
+		p->left = NULL;
+
+		p->value = rootVal;
+		p->bf = 1;
+
+		root->bf = -1;
 		break;
 
 	case 1:
@@ -264,7 +294,6 @@ void AVLTree::print(char letter) {
 
 AVLNode* AVLTree::getPred(AVLNode* node) {
 	// find the right most node in the left subtree
-	node = node->left;
 
 	if (node->right == NULL) {
 		return node;
@@ -328,7 +357,7 @@ void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
 		// case 4 - has 2 child nodes
 		else {
 			// get the pred
-			AVLNode* pred = getPred(root);
+			AVLNode* pred = getPred(root->left);
 			// make a copy of it to become the new root
 			int tmp = pred->value;
 
@@ -337,7 +366,15 @@ void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
 			remove(root, pred->value, tmpIsShorter);
 			
 			// replace the value of the root with the value of the pred.
-			root->value = tmp;
+			if (root->left->value == badValue) {
+				root->left->value = tmp;
+			}
+			else if (root->right->value == badValue) {
+				root->right->value = tmp;
+			}
+			else {
+				root->value = tmp;
+			}
 
 			// since the tree has already been balanced from the pred deletion the tree is
 			// no shorter and requires no further balancing.
@@ -364,8 +401,8 @@ void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
 					break;
 
 				case 1:
-					balanceFromLeft(root);
-					isShorter = true;
+					balanceFromRight(root);
+					isShorter = false;
 				}
 			}
 		}
@@ -375,7 +412,7 @@ void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
 			if (isShorter) {
 				switch (root->bf) {
 				case -1:
-					balanceFromRight(root); 
+					balanceFromLeft(root); 
 					isShorter = true;
 					break;
 
@@ -385,7 +422,7 @@ void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
 					break;
 
 				case 1:
-					root->bf = 0
+					root->bf = 0;
 					isShorter = true;
 				}
 			}
