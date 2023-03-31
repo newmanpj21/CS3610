@@ -263,8 +263,15 @@ void AVLTree::print(char letter) {
 
 
 AVLNode* AVLTree::getPred(AVLNode* node) {
-	cout << "Should implement this getPred() function in Part B. \n";
-	return NULL;
+	// find the right most node in the left subtree
+	node = node->left;
+
+	if (node->right == NULL) {
+		return node;
+	}
+	else {
+		return getPred(node->right);
+	}
 }
 
 
@@ -275,11 +282,114 @@ void AVLTree::remove(int badValue) {
 
 
 void AVLTree::remove(AVLNode* & root, int badValue, bool& isShorter) {
-	// This is the base case where the root is the value to be removed.
-    if(root->value == badValue){
-        switch () {
-            case :
-        }
-    }
+	// recursively find the node and perform a deletion 
+
+	// base case 1 - The search has resulted in a NULL node meaning that it is not in the tree
+	if(root == NULL) {
+		cout << "The node to be deleted is not in the tree." << endl;
+		return;
+	}
+
+
+	// base case 2 - The node is the value to be deleted.
+	else if(root->value == badValue) {
+		// perform the deletion
+		// there are 4 possible cases for the deletion
+
+
+		// case 1 - The node being deleted is a leaf node
+		if (root->left == NULL && root->right == NULL) {
+			delete root;
+			root = NULL;
+			isShorter = true;
+		}
+
+
+		// case 2 - has a right child only
+		else if(root->right != NULL && root->left == NULL) {
+			AVLNode* tmp = root->right;
+			root->left = root->right = NULL;
+			delete root;
+			root = tmp;
+			isShorter = true;
+		}
+
+
+		// case 3 - has a left child only
+		else if (root->left != NULL && root->right == NULL) {
+			AVLNode* tmp = root->left;
+			root->left = root->right = NULL;
+			delete root;
+			root = tmp;
+			isShorter = true;
+		}
+
+
+		// case 4 - has 2 child nodes
+		else {
+			// get the pred
+			AVLNode* pred = getPred(root);
+			// make a copy of it to become the new root
+			int tmp = pred->value;
+
+			// the pred can now be deleted with either case 2 or 3 because of the nature of predecessors.
+			bool tmpIsShorter = false;
+			remove(root, pred->value, tmpIsShorter);
+			
+			// replace the value of the root with the value of the pred.
+			root->value = tmp;
+
+			// since the tree has already been balanced from the pred deletion the tree is
+			// no shorter and requires no further balancing.
+			isShorter = tmpIsShorter;
+		}
+	}
+
+
+	// go down the correct subtree according to the value of the node and the bad value.
+	else {
+		// badValue is less than the current node so go down the left sub tree.
+		if (badValue < root->value) {
+			remove(root->left, badValue, isShorter);
+			if (isShorter) {
+				switch (root->bf) {
+				case -1:
+					root->bf = 0;
+					isShorter = true;
+					break;
+
+				case 0:
+					root->bf = 1;
+					isShorter = false;
+					break;
+
+				case 1:
+					balanceFromLeft(root);
+					isShorter = true;
+				}
+			}
+		}
+		// otherwise it is greater and should go down the right subtree
+		else {
+			remove(root->right, badValue, isShorter);
+			if (isShorter) {
+				switch (root->bf) {
+				case -1:
+					balanceFromRight(root); 
+					isShorter = true;
+					break;
+
+				case 0:
+					root->bf = -1;
+					isShorter = false;
+					break;
+
+				case 1:
+					root->bf = 0
+					isShorter = true;
+				}
+			}
+		}
+	}
 	return;
 }
