@@ -1,0 +1,3 @@
+﻿  main.cpp
+E:\GitHub\CS3610\Project4\source\main.cpp(52,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Project4.vcxproj -> E:\GitHub\CS3610\Project4\x64\Debug\Project4.exe
