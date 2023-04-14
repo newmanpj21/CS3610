@@ -22,7 +22,7 @@ int partition(vector<int>& list, int first, int last) {
 
   // partition procedure
   // swap the pivot and the first element in the list
-	swap(list.at(pivot), list.at(0));
+	swap(list.at(pivot), list.at(first));
 
     // for the remaining elements, if the current element is smaller than the pivot,
     // increment small index and swap current element with element at smallIndex
@@ -34,7 +34,7 @@ int partition(vector<int>& list, int first, int last) {
     }
 
     // return the pivot element to its original position
-    swap(list.at(smallIndex), list.at(0));
+    swap(list.at(smallIndex), list.at(first));
 	return smallIndex;  
 }
 
@@ -44,7 +44,7 @@ void recQuickSort(vector<int>& list, int first, int last) {
     if(first < last) {
         pivotLocation = partition(list, first, last);
         recQuickSort(list, first, pivotLocation - 1);
-        // recQuickSort(list, pivotLocation + 1, last);
+        recQuickSort(list, pivotLocation + 1, last);
     }
 }
 
