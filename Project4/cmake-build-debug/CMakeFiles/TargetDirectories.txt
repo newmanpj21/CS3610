@@ -1,0 +1,3 @@
+/home/pete/CS3610/Project4/cmake-build-debug/CMakeFiles/Project4.dir
+/home/pete/CS3610/Project4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pete/CS3610/Project4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

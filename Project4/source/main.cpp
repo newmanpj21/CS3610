@@ -1,5 +1,7 @@
  #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int partition(vector<int>& list, int first, int last) {
@@ -52,10 +54,58 @@ void quicksort(vector<int>& list, int first, int last) {
     recQuickSort(list, 0, list.size() - 1);
 }
 
+struct element{
+    int value;
+    int parentVector;
+};
+
+struct elementGreater{
+    bool operator()(const element a, const element b){
+        return a.value > b.value;
+    }
+};
+
 void multiway_merge(
-  vector<vector<int> >& input_lists, vector<int>& output_list
-) 
+  vector<vector<int> >& input_lists, vector<int>& output_list)
 {
+    // create a heap of all the first elements in the lists
+    priority_queue <element, vector<element>, elementGreater > heap;
+    for (int i = 0; i < input_lists.size(); ++i) {
+        element tmp;
+        tmp.parentVector = i;
+        tmp.value = input_lists.at(i).at(0);
+        heap.push(tmp);
+        input_lists.at(i).erase(input_lists.at(i).begin());
+    }
+
+    // output the min element to the output list and pull the successor into the heap.
+    bool complete = false;
+    int outIt = 0;
+    while (!complete){
+        // check to see if the process is complete
+        if (heap.empty()){
+            complete = true;
+        }
+
+        // if not complete push the min element to the output list
+        else{
+            output_list.at(outIt) = heap.top().value;
+            outIt++;
+
+            // get the successor and remove it from the input list while pushing to the heap IF IT EXISTS
+            if (!input_lists.at(heap.top().parentVector).empty()){
+                element tmp;
+                tmp.parentVector = heap.top().parentVector;
+                tmp.value = input_lists.at(tmp.parentVector).at(0);
+                input_lists.at(tmp.parentVector).erase(input_lists.at(tmp.parentVector).begin());
+                heap.pop();
+                heap.push(tmp);
+            }
+            else{
+                heap.pop();
+            }
+        }
+    }
 
 } 
 
