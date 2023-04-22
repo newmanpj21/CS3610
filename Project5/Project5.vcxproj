@@ -127,7 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\graphType.cpp" />
+    <ClCompile Include="source\linkedListIterator.cpp" />
+    <ClCompile Include="source\linkedListType.cpp" />
+    <ClCompile Include="source\linkedQueueType.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\unorderedLinkedList.cpp" />
+    <ClCompile Include="source\weightedGraphType.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\graphType.h" />
+    <ClInclude Include="source\linkedListIterator.h" />
+    <ClInclude Include="source\linkedListType.h" />
+    <ClInclude Include="source\linkedQueueType.h" />
+    <ClInclude Include="source\queueADT.h" />
+    <ClInclude Include="source\unorderedLinkedList.h" />
+    <ClInclude Include="source\weightedGraphType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

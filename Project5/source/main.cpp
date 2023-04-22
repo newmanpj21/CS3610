@@ -1,7 +1,7 @@
 /**
  * @author Pete Newman
  * @file main.cpp
- *
+ * 
 */
 #include <iostream>
 
