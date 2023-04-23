@@ -8,11 +8,6 @@
 //Definition of the node
 #include "queueADT.h"
 
-template <class Type>
-struct nodeType {
-	Type info;
-	nodeType<Type>* link;
-};
 
 template <class Type>
 class linkedQueueType : public queueADT<Type> {

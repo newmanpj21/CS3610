@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <iostream>
 
-using namespace std; 
+using namespace std;
 
 
 template <class Type>
