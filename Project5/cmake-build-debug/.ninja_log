@@ -1,4 +1,8 @@
 # ninja log v5
-0	13	1682004322812390532	build.ninja	2450aa120768fe5d
+0	13	1682356028642206326	build.ninja	2450aa120768fe5d
 160	203	1682003507957083311	Project5	a94e3b721cd3bf5b
 0	160	1682003507913750950	CMakeFiles/Project5.dir/source/main.cpp.o	426ce49528ae5ff6
+1	34	1682356042707987695	CMakeFiles/Project5.dir/source/linkedListIterator.cpp.o	70bc02c29967eaa2
+1	290	1682356042964639284	CMakeFiles/Project5.dir/source/linkedListType.cpp.o	11fb38579fd8727e
+1	302	1682356042977971833	CMakeFiles/Project5.dir/source/main.cpp.o	426ce49528ae5ff6
+1	374	1682356043047967792	CMakeFiles/Project5.dir/source/graphType.cpp.o	988c0649b9e6a495
