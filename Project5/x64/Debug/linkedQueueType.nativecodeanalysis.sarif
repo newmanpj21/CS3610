@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedqueuetype.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "88a0f1a7ee6d424f6452188c8db97234472cb0bed06b35e4f7858ed6998a1b27"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedqueuetype.h"
+          },
+          "hashes": {
+            "sha-256": "b34113025d61dcfc3e9ff8508679bfee9157e1263a226cfe268ad90136c6db98"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/queueadt.h"
+          },
+          "hashes": {
+            "sha-256": "26cfb2c30620241e7abe7c7d9fe724814795f0e46d2e01bf762ecc6e29164d1c"
+          }
+        }
+      ]
+    }
+  ]
+}

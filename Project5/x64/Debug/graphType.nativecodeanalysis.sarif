@@ -1,0 +1,83 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/graphtype.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "050425021fb1d56b3be66467a06c6fa8837524748e931fa5c23fb976d079390f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/graphtype.h"
+          },
+          "hashes": {
+            "sha-256": "da718fd59caebcca1d658d5eed3e0b93ae6e8270a1b495b7ea986179182dd11a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/unorderedlinkedlist.h"
+          },
+          "hashes": {
+            "sha-256": "4d6174c0d21be867a26eef98687764efac07bd7ca5549b461d405ed25eecddf5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedlisttype.h"
+          },
+          "hashes": {
+            "sha-256": "174da241c252ba112bb874ef07eba209d75f954b6e604d4bf8e1978ccf66e0b8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedlistiterator.h"
+          },
+          "hashes": {
+            "sha-256": "a89648d16cc788ef32cbcad01f50cfb66444706e805451624f7162d29c734d91"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedqueuetype.h"
+          },
+          "hashes": {
+            "sha-256": "cf6ad3d526358678eed8dbb87f88a3657d1e19de4d9366dc3b1c60ad9549d5e0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/queueadt.h"
+          },
+          "hashes": {
+            "sha-256": "26cfb2c30620241e7abe7c7d9fe724814795f0e46d2e01bf762ecc6e29164d1c"
+          }
+        }
+      ]
+    }
+  ]
+}

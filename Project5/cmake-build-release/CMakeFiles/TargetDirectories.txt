@@ -1,0 +1,3 @@
+/home/pete/CS3610/Project5/cmake-build-release/CMakeFiles/Project5.dir
+/home/pete/CS3610/Project5/cmake-build-release/CMakeFiles/edit_cache.dir
+/home/pete/CS3610/Project5/cmake-build-release/CMakeFiles/rebuild_cache.dir

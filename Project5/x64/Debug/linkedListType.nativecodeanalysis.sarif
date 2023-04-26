@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedlisttype.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "6273ae4771ca6982d09d40a465b1ca3db23b9877f0e0742a111f630f766124ce"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedlisttype.h"
+          },
+          "hashes": {
+            "sha-256": "174da241c252ba112bb874ef07eba209d75f954b6e604d4bf8e1978ccf66e0b8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/github/cs3610/project5/source/linkedlistiterator.h"
+          },
+          "hashes": {
+            "sha-256": "a89648d16cc788ef32cbcad01f50cfb66444706e805451624f7162d29c734d91"
+          }
+        }
+      ]
+    }
+  ]
+}
