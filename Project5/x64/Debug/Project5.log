@@ -1,3 +1,5 @@
 ﻿  main.cpp
-E:\GitHub\CS3610\Project5\source\main.cpp(127,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\GitHub\CS3610\Project5\source\main.cpp(129,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  test.cpp
+  Generating Code...
   Project5.vcxproj -> E:\GitHub\CS3610\Project5\x64\Debug\Project5.exe
